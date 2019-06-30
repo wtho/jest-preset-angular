@@ -41,14 +41,71 @@ describe("Jest Snapshot Bug", () => {
   });
 
   it("should allow snapshots", () => {
-    expect(fixture).toMatchInlineSnapshot();
+    expect(fixture).toMatchInlineSnapshot(`
+<tc-jest-inline-test1
+  condition1={[Function Boolean]}
+  condition2="false"
+  value1={[Function String]}
+  value2={[Function String]}
+>
+  <div>
+    Line 1
+  </div><div>
+    
+    <div>
+       val1 
+    </div>
+    
+  </div>
+</tc-jest-inline-test1>
+`);
 
     comp.condition2 = true;
     fixture.detectChanges();
-    expect(fixture).toMatchInlineSnapshot();
+    expect(fixture).toMatchInlineSnapshot(`
+<tc-jest-inline-test1
+  condition1={[Function Boolean]}
+  condition2={[Function Boolean]}
+  value1={[Function String]}
+  value2={[Function String]}
+>
+  <div>
+    Line 1
+  </div><div>
+    
+    <div>
+       val1 
+    </div>
+    
+    <span>
+       val2 
+    </span>
+  </div>
+</tc-jest-inline-test1>
+`);
 
     comp.condition1 = false;
     comp.condition2 = false;
-    expect(fixture).toMatchInlineSnapshot();
+    expect(fixture).toMatchInlineSnapshot(`
+<tc-jest-inline-test1
+  condition1="false"
+  condition2="false"
+  value1={[Function String]}
+  value2={[Function String]}
+>
+  <div>
+    Line 1
+  </div><div>
+    
+    <div>
+       val1 
+    </div>
+    
+    <span>
+       val2 
+    </span>
+  </div>
+</tc-jest-inline-test1>
+`);
   });
 });
