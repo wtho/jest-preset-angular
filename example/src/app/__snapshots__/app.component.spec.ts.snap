@@ -21,8 +21,14 @@ exports[`AppComponent snaps 1`] = `
       ddd
     </span>
     
-     \`test'chars""
-  
+     \`test'chars"" 
+    <div>
+      <span
+        class="test"
+      >
+        HI
+      </span>
+    </div>
   </h1>
 </app-root>
 `;

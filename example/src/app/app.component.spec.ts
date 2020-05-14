@@ -5,6 +5,7 @@ import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
 import { ConfigureFn, configureTests } from '@lib/testing';
 
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -25,6 +26,11 @@ describe('AppComponent', () => {
       fixture.detectChanges();
     });
   }));
+
+  it("should find span", () => {
+    const span = fixture.debugElement.query(By.css(".test"));
+    expect(span).toBeTruthy();
+  });
 
   it('Ivy should be enabled', () => {
     expect(ivyEnabled).toBeTruthy();

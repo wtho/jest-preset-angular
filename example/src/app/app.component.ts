@@ -11,6 +11,10 @@ export class AppComponent {
   title = 'app works!';
   hasClass = true;
   variableWithPrecedingDolar = 1234;
+
+  getMessage() {
+    return this.hasClass ? `<span class="test">HI</span>` : `<div class="test-2">HO</div>`;
+  }
 }
 
 export function slideToLeft() {
